@@ -5,5 +5,6 @@
 </head>
 <body>
 <h1>ERROR 404</h1>
+<p>Try again after sometime</p>
 </body>
 </html>

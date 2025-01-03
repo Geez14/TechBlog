@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="com.geez14.techblogs.util.ConnectionProvider" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,9 @@
 </head>
 <body>
   <h1><%= "Hello World!" %></h1>
+  <%
+    out.println(ConnectionProvider.getConnection());
+  %>
   <%-- javascript --%>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
