@@ -25,7 +25,7 @@ CREATE TABLE details
     id           NUMBER(20) PRIMARY KEY,
     first_name   VARCHAR2(32) NOT NULL,
     last_name    VARCHAR2(32) NOT NULL,
-    gender       VARCHAR2(16) NOT NULL CHECK (gender IN ('male', 'female', 'other')),
+    gender       VARCHAR2(16) NOT NULL,
     phone_number VARCHAR2(16),
     CONSTRAINT fk_details_user FOREIGN KEY (id) REFERENCES users (id) ON DELETE CASCADE
 );
@@ -40,7 +40,7 @@ INSERT INTO details (id, first_name, last_name, gender, phone_number)
 VALUES (1, 'John', 'Doe', 'male', '1234567890');
 
 -- test join
-select * from USERS u inner joi n ABOUTS a on a.id=u.id inner join DETAILS d on u.id = d.id;
+select * from USERS u inner join ABOUTS a on a.id=u.id inner join DETAILS d on u.id = d.id;
 
 -- test get about from email!
 select about from ABOUTS where id = (select id from USERS where EMAIL='john.doe@example.com');
