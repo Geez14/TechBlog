@@ -3,7 +3,7 @@ package com.geez14.techblogs.entities;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-public class Users {
+public class User {
     private int id;
     private String username;
     private String email;
@@ -13,7 +13,7 @@ public class Users {
     /**
      * For serialization and other purpose
      */
-    public Users() {
+    public User() {
         super();
     }
 
@@ -25,7 +25,7 @@ public class Users {
      * @param password java.lang.String
      * @param dateTime java.sql.Timestamp
      */
-    public Users(String username, String email, String password, Timestamp dateTime) {
+    public User(String username, String email, String password, Timestamp dateTime) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -41,7 +41,7 @@ public class Users {
      * @param password java.lang.String
      * @param dateTime java.sql.TimeStamp
      */
-    public Users(int id, String username, String email, String password, Timestamp dateTime) {
+    public User(int id, String username, String email, String password, Timestamp dateTime) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -93,7 +93,7 @@ public class Users {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Users users = (Users) o;
+        User users = (User) o;
         return id == users.id &&
                 username.equals(users.username) &&
                 email.equals(users.email) &&

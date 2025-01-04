@@ -2,7 +2,7 @@ package com.geez14.techblogs.entities;
 
 import java.util.Objects;
 
-public class Details {
+public class Detail {
     private int id;
     private String firstName;
     private String lastName;
@@ -13,7 +13,7 @@ public class Details {
     /**
      * For serialization and other purpose
      */
-    public Details() {
+    public Detail() {
         super();
     }
 
@@ -25,7 +25,7 @@ public class Details {
      * @param gender      java.lang.String
      * @param phoneNumber java.lang.String
      */
-    public Details(String firstName, String lastName, String gender, String phoneNumber) {
+    public Detail(String firstName, String lastName, String gender, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -41,7 +41,7 @@ public class Details {
      * @param gender      java.lang.String
      * @param phoneNumber java.lang.String
      */
-    public Details(int id, String firstName, String lastName, String gender, String phoneNumber) {
+    public Detail(int id, String firstName, String lastName, String gender, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -91,7 +91,7 @@ public class Details {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Details details)) return false;
+        if (!(o instanceof Detail details)) return false;
         return id == details.id &&
                 firstName.equals(details.firstName) &&
                 lastName.equals(details.lastName) &&

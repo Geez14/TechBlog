@@ -2,7 +2,7 @@ package com.geez14.techblogs.entities;
 
 import java.util.Objects;
 
-public class Abouts {
+public class About {
     private int id;
     private String about;
 
@@ -11,14 +11,14 @@ public class Abouts {
      *
      * @param about java.lang.String
      */
-    public Abouts(String about) {
+    public About(String about) {
         this.about = about;
     }
 
     /**
      * For serialization and other purpose
      */
-    public Abouts() {
+    public About() {
         super();
     }
 
@@ -28,7 +28,7 @@ public class Abouts {
      * @param id    int
      * @param about java.lang.String
      */
-    public Abouts(int id, String about) {
+    public About(int id, String about) {
         this.id = id;
         this.about = about;
     }
@@ -51,7 +51,7 @@ public class Abouts {
 
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Abouts abouts)) return false;
+        if (!(o instanceof About abouts)) return false;
         return id == abouts.id && Objects.equals(about, abouts.about);
     }
 
