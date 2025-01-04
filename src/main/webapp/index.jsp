@@ -8,11 +8,6 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="resources/css/styles.css" rel="stylesheet" type="text/css">
-    <style>
-        .banner-background {
-            clip-path: polygon(0 0, 100% 0, 100% 98%, 76% 99%, 58% 96%, 34% 98%, 18% 96%, 0 100%);
-        }
-    </style>
 </head>
 <body data-theme="light">
 <%-- Navbar --%>
@@ -33,9 +28,10 @@
             <p>Rarely do prospective developers start with a roadmap – a bird's eye view of the coding world that
                 outlines a set of relevant programming concepts, languages, and tools that almost 100% of developers use
                 every day.</p>
-            <button class="btn btn-outline-light btn-lg"><span class="fa fa-gift fa-spin"></span> Start for free
-            </button>
-            <button class="btn btn-outline-light btn-lg"><span class="fa fa-user-circle"></span> Login</button>
+            <a href="register.jsp" class="btn btn-outline-light btn-lg"><span class="fa fa-gift fa-spin"></span> Start
+                for free
+            </a>
+            <a href="login.jsp" class="btn btn-outline-light btn-lg"><span class="fa fa-user-circle"></span> Login</a>
         </div>
     </div>
 </div>

@@ -25,3 +25,6 @@
     background-color: #e9ecef;
     border-radius: .3rem;
 }
+.banner-background {
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 76% 99%, 58% 96%, 34% 98%, 18% 96%, 0 100%);
+}
