@@ -1,26 +1,34 @@
 package com.geez14.techblogs.servlets;
 
 import java.io.*;
-import java.text.DateFormat;
 import java.util.*;
-import java.time.LocalDate;
 
 import com.geez14.techblogs.dao.AboutDao;
 import com.geez14.techblogs.dao.DetailDao;
-import com.geez14.techblogs.dao.RegistrationDao;
 import com.geez14.techblogs.dao.UserDao;
 import com.geez14.techblogs.entities.About;
 import com.geez14.techblogs.entities.Detail;
 import com.geez14.techblogs.entities.User;
 import com.geez14.techblogs.util.ConnectionProvider;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "RegisterServlet", value = "/signup")
 public class RegisterServlet extends HttpServlet {
 
     static Random code = new Random();
 
+//    @Override
+//    public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+//        super.service(req, res);
+//        HttpServletResponse response = (HttpServletResponse) res;
+//        response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+//    }
+
+    @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
         String check = request.getParameter("check");
@@ -42,7 +50,17 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
         // check for bad fields
-        if (firstName.length() > 32 || lastName.length() > 32 || email.length() > 32 || password.length() > 32 || gender.length() > 128) {
+        if (firstName.length() > 32 || lastName.length() > 32 || email.length() > 32 || password.length() > 32) {
+            out.println("Some field are too large to fit");
+            return;
+        }
+        if (password.length() < 8) {
+            out.println("password must be at least 8 characters");
+            return;
+        }
+        if (!(gender.equals("male") || gender.equals("female"))) {
+            out.println("Gender must be either male or female");
+            return;
         }
 
         // creating user_name
