@@ -27,22 +27,26 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form id="user-login-form" action="" method="POST">
+                            <%-- email --%>
                             <div class="mb-3">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="user_email" placeholder="Enter email"
-                                       aria-describedby="emailHelp">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone
-                                    else.
-                                </div>
+                                <label for="user-email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" name="email" id="user-email"
+                                       placeholder="Enter email"
+                                       aria-describedby="emailHelp" required>
                             </div>
+
+                            <%-- password --%>
                             <div class="mb-3">
-                                <label for="user_password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="user_password" placeholder="Enter password">
+                                <label for="user-password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password" id="user-password"
+                                       placeholder="Enter password" required>
                             </div>
+
+                            <%-- remeber me --%>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Remember me 😎</label>
+                                <input type="checkbox" class="form-check-input" name="check" id="remember-me">
+                                <label class="form-check-label" for="remember-me">Remember me</label>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -61,6 +65,38 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-<script src="resources/js/main.js"></script>
+<%-- for animated alerts --%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(() => {
+        console.log("Form loaded")
+        $("#user-login-form").on("submit", (event) => {
+            event.preventDefault();
+            let form = new FormData(event.target);
+            console.log(form.get("email"), form.get("password"));
+            $.ajax({
+                url: "login",
+                type: "POST",
+                data: form,
+                success: (data, textStatus, jqXHR) => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: data.responseText,
+                    });
+                },
+                error: (data, textStatus, errorThrown) => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: data.responseText,
+                    });
+                },
+                processData: false,
+                contentType: false
+            })
+        });
+    });
+</script>
 </body>
 </html>

@@ -126,7 +126,7 @@
 <script>
     <%-- Ajax --%>
     $(document).ready(() => {
-        console.log("Loaded ........")
+        // console.log("Loaded ........")
         $("#user-reg-form").on("submit", (event) => {
             event.preventDefault();
             let form = new FormData(event.target);
@@ -134,7 +134,7 @@
             $("#loader").show();
             // send register servlet
             $.ajax({
-                "url": "register",
+                url: "register",
                 type: "POST",
                 data: form,
                 success: (data, textStatus, jqXHR) => {
