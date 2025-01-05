@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form id="user-reg-form" action="register" method="POST">
+                        <form id="user-reg-form" action="" method="POST">
                             <%-- FirstName --%>
                             <div class="mb-3 form-group">
                                 <label for="user-first-name" class="form-label">FirstName</label>
@@ -36,7 +36,7 @@
                                        aria-describedby="emailHelp" placeholder="FirstName" required>
                             </div>
 
-                             <%-- LastName --%>
+                            <%-- LastName --%>
                             <div class="mb-3 form-group">
                                 <label for="user-last-name" class="form-label">LastName</label>
                                 <input type="text" name="lastname" class="form-control" id="user-last-name"
@@ -61,16 +61,18 @@
                                 <div id="phoneHelp" class="form-text">(optional)</div>
                             </div>
 
-                             <%-- password --%>
+                            <%-- password --%>
                             <div class="mb-3 form-group">
                                 <label for="user-password" class="form-label">Password</label>
                                 <input type="password" name="password" class="form-control" id="user-password"
                                        aria-describedby="passwordHelp"
                                        placeholder="Password" required>
-                                <div id="passwordHelp" class="form-text">password must contain at least one symbol and digit</div>
+                                <div id="passwordHelp" class="form-text">password must contain at least one symbol and
+                                    digit
+                                </div>
                             </div>
 
-                             <%-- gender--%>
+                            <%-- gender--%>
                             <div class="mb-3 form-group">
                                 <label class="form-label">Select Gender</label>
                                 <br>
@@ -78,7 +80,7 @@
                                 <input type="radio" id="gender-f" value="female" name="gender" required> Female
                             </div>
 
-                             <%-- about --%>
+                            <%-- about --%>
                             <div class="mb-3 form-group">
                                 <label for="user-about" class="form-label">About</label>
                                 <textarea class="form-control" name="about" id="user-about" rows="5"
@@ -88,14 +90,21 @@
                                 <div id="aboutHelp" class="form-text">(optional)</div>
                             </div>
 
-                             <%-- terms and condition --%>
+                            <%-- terms and condition --%>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" name="check" class="form-check-input" id="user_accept_tandc" required>
-                                <label class="form-check-label" for="user_accept_tandc">Agree terms and conditions</label>
+                                <input type="checkbox" name="check" class="form-check-input" id="user_accept_tandc"
+                                       required>
+                                <label class="form-check-label" for="user_accept_tandc">Agree terms and
+                                    conditions</label>
                             </div>
                             <br>
-                             <%-- submit --%>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <%-- submit --%>
+                            <div id="loader" class="container text-center" style="display: none">
+                                <span class="fa fa-spinner fa-spin fa-2x"></span>
+                                <p>Please Wait...</p>
+                            </div>
+                            <br>
+                            <button id="btn-submit" type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -112,12 +121,58 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+<%-- for animated alerts --%>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-<%-- Ajax --%>
-$(document).ready(()=>{
-    console.log("Loaded ........")
-})
-
+    <%-- Ajax --%>
+    $(document).ready(() => {
+        console.log("Loaded ........")
+        $("#user-reg-form").on("submit", (event) => {
+            event.preventDefault();
+            let form = new FormData(event.target);
+            $("#btn-submit").hide();
+            $("#loader").show();
+            // send register servlet
+            $.ajax({
+                "url": "register",
+                type: "POST",
+                data: form,
+                success: (data, textStatus, jqXHR) => {
+                    $("#loader").hide();
+                    $("#btn-submit").show();
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: data,
+                    }).then((value)=>{
+                        let timerInterval;
+                        // run for 3000 millisecond, update the text each 100 millisecond
+                        Swal.fire({
+                            title: "Redirecting in 3 seconds...",
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: () => {
+                                Swal.showLoading();
+                                timerInterval = setInterval(() => {
+                                }, 100);
+                            },
+                        }).then(()=>{window.location = "login.jsp"});
+                    });
+                },
+                error: (data, textStatus, errorThrown) => {
+                    $("#loader").hide();
+                    $("#btn-submit").show();
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: data.responseText,
+                    });
+                },
+                processData: false,
+                contentType: false
+            })
+        });
+    });
 </script>
 </body>
 </html>
