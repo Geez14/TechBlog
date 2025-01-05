@@ -3,7 +3,7 @@ package com.geez14.techblogs.entities;
 import java.util.Objects;
 
 public class User {
-    private int id;
+    private int id = -1;
     private String username;
     private String email;
     private String password;
@@ -98,7 +98,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
