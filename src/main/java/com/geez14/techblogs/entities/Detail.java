@@ -17,20 +17,20 @@ public class Detail {
         super();
     }
 
-    /**
-     * Constructor to set data
-     *
-     * @param firstName   java.lang.String
-     * @param lastName    java.lang.String
-     * @param gender      java.lang.String
-     * @param phoneNumber java.lang.String
-     */
-    public Detail(String firstName, String lastName, String gender, String phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.gender = gender;
-        this.phoneNumber = phoneNumber;
-    }
+//    /**
+//     * Constructor to set data
+//     *
+//     * @param firstName   java.lang.String
+//     * @param lastName    java.lang.String
+//     * @param gender      java.lang.String
+//     * @param phoneNumber java.lang.String
+//     */
+//    public Detail(String firstName, String lastName, String gender, String phoneNumber) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.gender = gender;
+//        this.phoneNumber = phoneNumber;
+//    }
 
     /**
      * Constructor to get object from ID
@@ -106,12 +106,14 @@ public class Detail {
 
     /**
      * Override toString method to get object representation
+     *
      * @return java.lang.String
      */
     @Override
     public String toString() {
         return "Detail{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
