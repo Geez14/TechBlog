@@ -57,6 +57,17 @@ public class About {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, about);
+        return id;
+    }
+
+    /**
+     * Override toString method to get object representation
+     * @return java.lang.String
+     */
+    @Override
+    public String toString() {
+        return "About{" +
+                "about='" + about + '\'' +
+                '}';
     }
 }

@@ -101,7 +101,20 @@ public class Detail {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, lastName);
+        return id;
     }
 
+    /**
+     * Override toString method to get object representation
+     * @return java.lang.String
+     */
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

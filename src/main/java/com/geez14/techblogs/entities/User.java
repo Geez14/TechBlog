@@ -1,6 +1,5 @@
 package com.geez14.techblogs.entities;
 
-import java.sql.Timestamp;
 import java.util.Objects;
 
 public class User {
@@ -8,8 +7,6 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private Timestamp dateTime;
-
     /**
      * For serialization and other purpose
      */
@@ -23,13 +20,11 @@ public class User {
      * @param username int
      * @param email    java.lang.String
      * @param password java.lang.String
-     * @param dateTime java.sql.Timestamp
      */
-    public User(String username, String email, String password, Timestamp dateTime) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.dateTime = dateTime;
     }
 
     /**
@@ -39,14 +34,12 @@ public class User {
      * @param username java.lang.String
      * @param email    java.lang.String
      * @param password java.lang.String
-     * @param dateTime java.sql.TimeStamp
      */
-    public User(int id, String username, String email, String password, Timestamp dateTime) {
+    public User(int id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.dateTime = dateTime;
     }
 
     public String getUsername() {
@@ -81,14 +74,6 @@ public class User {
         this.password = password;
     }
 
-    public Timestamp getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(Timestamp dateTime) {
-        this.dateTime = dateTime;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -97,12 +82,25 @@ public class User {
         return id == users.id &&
                 username.equals(users.username) &&
                 email.equals(users.email) &&
-                password.equals(users.password) &&
-                dateTime.equals(users.dateTime);
+                password.equals(users.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username);
+        return id;
+    }
+
+
+    /**
+     * Override toString method to get object representation
+     * @return java.lang.String
+     */
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
