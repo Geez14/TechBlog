@@ -44,8 +44,10 @@ public class RegistrationDao {
 
             PreparedStatement stmt4 = this.conn.prepareStatement(QUERY3);
             stmt4.setInt(1, id);
-            stmt4.setString(2, user.getUsername());
-            stmt4.setString(3, user.getEmail());
+            stmt4.setString(2, detail.getFirstName());
+            stmt4.setString(3, detail.getLastName());
+            stmt4.setString(4, detail.getGender());
+            stmt4.setString(5, detail.getPhoneNumber());
             stmt4.close();
         } catch (SQLException sqe) {
             sqe.printStackTrace();
