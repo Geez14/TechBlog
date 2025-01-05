@@ -26,27 +26,28 @@
                             <p>Register</p>
                         </div>
                     </div>
+
                     <div class="card-body">
                         <form action="register" method="POST">
                             <%-- FirstName --%>
                             <div class="mb-3 form-group">
                                 <label for="user_first_name" class="form-label">FirstName</label>
                                 <input type="text" name="firstname" class="form-control" id="user_first_name"
-                                       aria-describedby="emailHelp" placeholder="FirstName">
+                                       aria-describedby="emailHelp" placeholder="FirstName" required>
                             </div>
 
                              <%-- LastName --%>
                             <div class="mb-3 form-group">
                                 <label for="user_last_name" class="form-label">LastName</label>
                                 <input type="text" name="lastname" class="form-control" id="user_last_name"
-                                       aria-describedby="emailHelp" placeholder="LastName">
+                                       aria-describedby="emailHelp" placeholder="LastName" required>
                             </div>
 
                             <%-- email --%>
                             <div class="mb-3 form-group">
                                 <label for="user_email" class="form-label">Email address</label>
                                 <input type="email" name="email" class="form-control" id="user_email"
-                                       aria-describedby="emailHelp" placeholder="Enter email">
+                                       aria-describedby="emailHelp" placeholder="Enter email" required>
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone
                                     else.
                                 </div>
@@ -56,38 +57,41 @@
                             <div class="mb-3 form-group">
                                 <label for="user_phone" class="form-label">Phone Number</label>
                                 <input type="number" name="phone" class="form-control" id="user_phone"
-                                       aria-describedby="emailHelp" placeholder="Enter phone number">
-                                <div id="phoneHelp" class="form-text">We'll never share your phone number with any one
-                                </div>
+                                       aria-describedby="phoneHelp" placeholder="Enter phone number">
+                                <div id="phoneHelp" class="form-text">(optional)</div>
                             </div>
 
                              <%-- password --%>
                             <div class="mb-3 form-group">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword1"
-                                       placeholder="Password">
+                                <label for="user_password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="user_password"
+                                       aria-describedby="passwordHelp"
+                                       placeholder="Password" required>
+                                <div id="passwordHelp" class="form-text">password must contain at least one symbol and digit</div>
                             </div>
 
                              <%-- gender--%>
                             <div class="mb-3 form-group">
                                 <label class="form-label">Select Gender</label>
                                 <br>
-                                <input type="radio" id="genderM" value="male" name="gender"> Male
-                                <input type="radio" id="genderF" value="female" name="gender"> Female
+                                <input type="radio" id="genderM" value="male" name="gender" required> Male
+                                <input type="radio" id="genderF" value="female" name="gender" required> Female
                             </div>
 
                              <%-- about --%>
                             <div class="mb-3 form-group">
-                                <label for="user_about" class="form-label"></label>
+                                <label for="user_about" class="form-label">About</label>
                                 <textarea class="form-control" name="about" id="user_about" rows="5"
-                                          placeholder="Enter something that makes you special">
+                                          placeholder="Enter something that makes you special"
+                                          aria-describedby="aboutHelp">
                                  </textarea>
+                                <div id="aboutHelp" class="form-text">(optional)</div>
                             </div>
 
                              <%-- terms and condition --%>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" name="check" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Agree terms and conditions</label>
+                                <input type="checkbox" name="check" class="form-check-input" id="user_accept_tandc" required>
+                                <label class="form-check-label" for="user_accept_tandc">Agree terms and conditions</label>
                             </div>
                             <br>
                              <%-- submit --%>

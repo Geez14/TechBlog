@@ -5,7 +5,7 @@ DROP table users;
 CREATE TABLE users
 (
     id       NUMBER(20) GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    username VARCHAR2(36) NOT NULL UNIQUE,
+    username VARCHAR2(36)  NOT NULL UNIQUE,
     email    VARCHAR2(128) NOT NULL UNIQUE,
     reg_date TIMESTAMP DEFAULT SYSTIMESTAMP,
     password VARCHAR2(256) NOT NULL
@@ -40,9 +40,13 @@ INSERT INTO details (id, first_name, last_name, gender, phone_number)
 VALUES (1, 'John', 'Doe', 'male', '1234567890');
 
 -- test join
-select * from USERS u inner join ABOUTS a on a.id=u.id inner join DETAILS d on u.id = d.id;
+select *
+from USERS u
+         inner join ABOUTS a on a.id = u.id
+         inner join DETAILS d on u.id = d.id;
 
 -- test get about from email!
-select about from ABOUTS where id = (select id from USERS where EMAIL='john.doe@example.com');
-
+select about
+from ABOUTS
+where id = (select id from USERS where EMAIL = 'john.doe@example.com');
 commit;
