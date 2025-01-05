@@ -27,63 +27,70 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="register" method="POST">
                             <%-- FirstName --%>
                             <div class="mb-3 form-group">
                                 <label for="user_first_name" class="form-label">FirstName</label>
-                                <input type="text" class="form-control" id="user_first_name"
+                                <input type="text" name="firstname" class="form-control" id="user_first_name"
                                        aria-describedby="emailHelp" placeholder="FirstName">
                             </div>
 
                              <%-- LastName --%>
                             <div class="mb-3 form-group">
                                 <label for="user_last_name" class="form-label">LastName</label>
-                                <input type="text" class="form-control" id="user_last_name"
+                                <input type="text" name="lastname" class="form-control" id="user_last_name"
                                        aria-describedby="emailHelp" placeholder="LastName">
                             </div>
 
+                            <%-- email --%>
                             <div class="mb-3 form-group">
                                 <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="user_email"
+                                <input type="email" name="email" class="form-control" id="user_email"
                                        aria-describedby="emailHelp" placeholder="Enter email">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone
                                     else.
                                 </div>
                             </div>
 
+                            <%-- phoneNumber --%>
                             <div class="mb-3 form-group">
                                 <label for="user_phone" class="form-label">Phone Number</label>
-                                <input type="email" class="form-control" id="user_phone"
+                                <input type="number" name="phone" class="form-control" id="user_phone"
                                        aria-describedby="emailHelp" placeholder="Enter phone number">
                                 <div id="phoneHelp" class="form-text">We'll never share your phone number with any one
                                 </div>
                             </div>
 
+                             <%-- password --%>
                             <div class="mb-3 form-group">
                                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1"
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                                        placeholder="Password">
                             </div>
 
+                             <%-- gender--%>
                             <div class="mb-3 form-group">
                                 <label class="form-label">Select Gender</label>
                                 <br>
-                                <input type="radio" id="genderM" name="user_gender"> Male
-                                <input type="radio" id="genderF" name="user_gender"> Female
+                                <input type="radio" id="genderM" value="male" name="gender"> Male
+                                <input type="radio" id="genderF" value="female" name="gender"> Female
                             </div>
 
-                            <div class="mb-3">
+                             <%-- about --%>
+                            <div class="mb-3 form-group">
                                 <label for="user_about" class="form-label"></label>
                                 <textarea class="form-control" name="about" id="user_about" rows="5"
                                           placeholder="Enter something that makes you special">
                                  </textarea>
                             </div>
 
+                             <%-- terms and condition --%>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" name="check" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Agree terms and conditions</label>
                             </div>
                             <br>
+                             <%-- submit --%>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
