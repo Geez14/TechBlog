@@ -53,19 +53,21 @@ public class RegisterServlet extends HttpServlet {
             return;
         }
 
-        // check for bad fields
+        // check for data lengths
         if (firstName.length() > 32 || lastName.length() > 32 || email.length() > 32 || password.length() > 32) {
-            response.setStatus(HttpServletResponse.SC_UNPROCESSABLE_CONTENT);
+            response.setStatus(HttpServletResponse.SC_REQUEST_ENTITY_TOO_LARGE);
             out.println("Some field are too large to fit");
             return;
         }
 
+        // check password length
         if (password.length() < 8) {
             response.setStatus(HttpServletResponse.SC_UNPROCESSABLE_CONTENT);
             out.println("password must be at least 8 characters");
             return;
         }
 
+        // check for correct gender values
         if (!(gender.equals("male") || gender.equals("female"))) {
             response.setStatus(HttpServletResponse.SC_UNPROCESSABLE_CONTENT);
             out.println("Gender must be either male or female");
