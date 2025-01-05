@@ -28,25 +28,25 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="register" method="POST">
+                        <form id="user-reg-form" action="register" method="POST">
                             <%-- FirstName --%>
                             <div class="mb-3 form-group">
-                                <label for="user_first_name" class="form-label">FirstName</label>
-                                <input type="text" name="firstname" class="form-control" id="user_first_name"
+                                <label for="user-first-name" class="form-label">FirstName</label>
+                                <input type="text" name="firstname" class="form-control" id="user-first-name"
                                        aria-describedby="emailHelp" placeholder="FirstName" required>
                             </div>
 
                              <%-- LastName --%>
                             <div class="mb-3 form-group">
-                                <label for="user_last_name" class="form-label">LastName</label>
-                                <input type="text" name="lastname" class="form-control" id="user_last_name"
+                                <label for="user-last-name" class="form-label">LastName</label>
+                                <input type="text" name="lastname" class="form-control" id="user-last-name"
                                        aria-describedby="emailHelp" placeholder="LastName" required>
                             </div>
 
                             <%-- email --%>
                             <div class="mb-3 form-group">
-                                <label for="user_email" class="form-label">Email address</label>
-                                <input type="email" name="email" class="form-control" id="user_email"
+                                <label for="user-email" class="form-label">Email address</label>
+                                <input type="email" name="email" class="form-control" id="user-email"
                                        aria-describedby="emailHelp" placeholder="Enter email" required>
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone
                                     else.
@@ -55,16 +55,16 @@
 
                             <%-- phoneNumber --%>
                             <div class="mb-3 form-group">
-                                <label for="user_phone" class="form-label">Phone Number</label>
-                                <input type="number" name="phone" class="form-control" id="user_phone"
+                                <label for="user-phone" class="form-label">Phone Number</label>
+                                <input type="number" name="phone" class="form-control" id="user-phone"
                                        aria-describedby="phoneHelp" placeholder="Enter phone number">
                                 <div id="phoneHelp" class="form-text">(optional)</div>
                             </div>
 
                              <%-- password --%>
                             <div class="mb-3 form-group">
-                                <label for="user_password" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="user_password"
+                                <label for="user-password" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" id="user-password"
                                        aria-describedby="passwordHelp"
                                        placeholder="Password" required>
                                 <div id="passwordHelp" class="form-text">password must contain at least one symbol and digit</div>
@@ -74,14 +74,14 @@
                             <div class="mb-3 form-group">
                                 <label class="form-label">Select Gender</label>
                                 <br>
-                                <input type="radio" id="genderM" value="male" name="gender" required> Male
-                                <input type="radio" id="genderF" value="female" name="gender" required> Female
+                                <input type="radio" id="gender-m" value="male" name="gender" required> Male
+                                <input type="radio" id="gender-f" value="female" name="gender" required> Female
                             </div>
 
                              <%-- about --%>
                             <div class="mb-3 form-group">
-                                <label for="user_about" class="form-label">About</label>
-                                <textarea class="form-control" name="about" id="user_about" rows="5"
+                                <label for="user-about" class="form-label">About</label>
+                                <textarea class="form-control" name="about" id="user-about" rows="5"
                                           placeholder="Enter something that makes you special"
                                           aria-describedby="aboutHelp">
                                  </textarea>
@@ -112,6 +112,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-<script src="resources/js/main.js"></script>
+<script>
+<%-- Ajax --%>
+$(document).ready(()=>{
+    console.log("Loaded ........")
+})
+
+</script>
 </body>
 </html>
