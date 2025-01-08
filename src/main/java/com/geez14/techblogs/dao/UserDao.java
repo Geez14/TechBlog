@@ -17,6 +17,7 @@ public class UserDao {
     private static final String QUERY = "INSERT INTO USERS(username, email, password) VALUES(?, ?, ?)";
     private static final String QUERY_GET_ID = "SELECT ID FROM USERS WHERE USERNAME = ? AND EMAIL = ?";
     private static final String QUERY_DROP_USER = "DELETE FROM USERS WHERE USERNAME = ? AND EMAIL = ?";
+    private static final String QUERY_GET_BY_EMAIL_PASSWORD = "SELECT * FROM USERS WHERE EMAIL = ? AND PASSWORD = ?";
 
     /**
      * @param user com.geez14.techblogs.entities.User
