@@ -1,5 +1,8 @@
 package com.geez14.techblogs.servlets;
 
+import com.geez14.techblogs.dao.UserDao;
+import com.geez14.techblogs.entities.User;
+import com.geez14.techblogs.util.ConnectionProvider;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
