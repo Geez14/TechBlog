@@ -15,6 +15,7 @@ CREATE TABLE users
 CREATE TABLE abouts
 (
     id    NUMBER(20) PRIMARY KEY,
+    profile VARCHAR2(64) DEFAULT 'default.png',
     about VARCHAR2(1024) DEFAULT 'Hey! I am using knowledgeMD',
     CONSTRAINT fk_about_user FOREIGN KEY (id) REFERENCES users (id) ON DELETE CASCADE
 );
