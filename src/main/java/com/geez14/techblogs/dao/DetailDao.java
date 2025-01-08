@@ -1,16 +1,18 @@
 package com.geez14.techblogs.dao;
 
 import com.geez14.techblogs.entities.Detail;
+import com.geez14.techblogs.entities.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DetailDao {
-    private Connection conn;
+    private final Connection conn;
     private static final String QUERY =
             "INSERT INTO DETAILS(id, first_name, last_name, gender, phone_number) VALUES(?, ?, ?, ?, ?)";
-
+    private static final String QUERY_FIND_BY_ID = "SELECT * FROM DETAILS WHERE id = ?";
     public DetailDao(Connection conn) {
         this.conn = conn;
     }
@@ -27,5 +29,25 @@ public class DetailDao {
             return false;
         }
         return true;
+    }
+    public Detail getDetailById(int id) {
+        Detail detail = null;
+        try {
+            PreparedStatement stmt = conn.prepareStatement(QUERY_FIND_BY_ID);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                detail = new Detail();
+                detail.setId(rs.getInt("id"));
+                detail.setFirstName(rs.getString("first_name"));
+                detail.setLastName(rs.getString("last_name"));
+                detail.setGender(rs.getString("gender"));
+                detail.setPhoneNumber(rs.getString("phone_number"));
+            }
+        } catch (SQLException sqe) {
+            sqe.printStackTrace();
+            return null;
+        }
+        return detail;
     }
 }
