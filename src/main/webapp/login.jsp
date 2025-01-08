@@ -68,36 +68,36 @@
 <%-- for animated alerts --%>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <%@include file="WEB-INF/components/footer.jsp"%>
-<%--<script>--%>
-<%--    $(document).ready(() => {--%>
-<%--        console.log("Form loaded")--%>
-<%--        $("#user-login-form").on("submit", (event) => {--%>
-<%--            event.preventDefault();--%>
-<%--            let form = new FormData(event.target);--%>
-<%--            console.log(form.get("email"), form.get("password"));--%>
-<%--            $.ajax({--%>
-<%--                url: "login",--%>
-<%--                type: "POST",--%>
-<%--                data: form,--%>
-<%--                success: (data, textStatus, jqXHR) => {--%>
-<%--                    Swal.fire({--%>
-<%--                        icon: "success",--%>
-<%--                        title: "Success",--%>
-<%--                        text: data.responseText,--%>
-<%--                    });--%>
-<%--                },--%>
-<%--                error: (data, textStatus, errorThrown) => {--%>
-<%--                    Swal.fire({--%>
-<%--                        icon: "error",--%>
-<%--                        title: "Error",--%>
-<%--                        text: data.responseText,--%>
-<%--                    });--%>
-<%--                },--%>
-<%--                processData: false,--%>
-<%--                contentType: false--%>
-<%--            })--%>
-<%--        });--%>
-<%--    });--%>
-<%--</script>--%>
+<script>
+    $(document).ready(() => {
+        console.log("Form loaded")
+        $("#user-login-form").on("submit", (event) => {
+            event.preventDefault();
+            let form = new FormData(event.target);
+            console.log(form.get("email"), form.get("password"));
+            $.ajax({
+                url: "login",
+                type: "POST",
+                data: form,
+                success: (data, textStatus, jqXHR) => {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: data.responseText,
+                    });
+                },
+                error: (data, textStatus, errorThrown) => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error",
+                        text: data.responseText,
+                    });
+                },
+                processData: false,
+                contentType: false
+            })
+        });
+    });
+</script>
 </body>
 </html>
