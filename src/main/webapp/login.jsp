@@ -1,3 +1,4 @@
+<%@ page import="com.geez14.techblogs.entities.utility.Message" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -26,6 +27,16 @@
                             <p>Login Form</p>
                         </div>
                     </div>
+                        <% Message m = (Message) session.getAttribute("msg");
+                            if (m!=null) {
+                        %>
+                        <div id="message" class="<%=m.getCssClass()%>" role="alert">
+                            <%=m.getContent()%>
+                        </div>
+                        <%
+                                session.removeAttribute("msg");
+                            }
+                        %>
                     <div class="card-body">
                         <form id="user-login-form" action="${pageContext.request.contextPath}/login" method="POST">
                             <%-- email --%>
@@ -65,38 +76,5 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
-<%-- for animated alerts --%>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<%@include file="WEB-INF/components/footer.jsp"%>
-<script>
-    $(document).ready(() => {
-        console.log("Form loaded")
-        $("#user-login-form").on("submit", (event) => {
-            event.preventDefault();
-            let form = new FormData(event.target);
-            $.ajax({
-                url: "login",
-                type: "POST",
-                data: form,
-                success: (data, textStatus, jqXHR) => {
-                    Swal.fire({
-                        icon: "success",
-                        title: "Success",
-                        text: data.responseText,
-                    });
-                },
-                error: (data, textStatus, errorThrown) => {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: data.responseText,
-                    });
-                },
-                processData: false,
-                contentType: false
-            })
-        });
-    });
-</script>
 </body>
 </html>
