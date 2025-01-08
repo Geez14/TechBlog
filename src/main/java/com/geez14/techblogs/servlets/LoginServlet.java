@@ -53,6 +53,22 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        User user = new UserDao(ConnectionProvider.getConnection()).verifyByEmailAndPassword(email, password);
+        if (user == null) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            out.println("User not exist");
+            return;
+        }
+
+        request.getSession().setAttribute("userSession", user);
+        // ('on' | null)
+        String check = request.getParameter("check");
+        if (check != null) {
+            // 2 days session expire time
+            int time = 2*24*60*60;
+            request.getSession().setMaxInactiveInterval(time);
+        }
+
         out.println("Logged in");
         out.println("<br>");
         out.println("Email: " + email);
