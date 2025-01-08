@@ -18,13 +18,6 @@ public class LoginServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
-        // ('on' | null)
-        String check = request.getParameter("check");
-        if (check != null) {
-            // 2 days session expire time
-            int time = 2*24*60*60;
-            request.getSession().setMaxInactiveInterval(time);
-        }
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
