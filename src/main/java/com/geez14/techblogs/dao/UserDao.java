@@ -57,4 +57,31 @@ public class UserDao {
         }
         return true;
     }
+
+    public User verifyByEmailAndPassword(String email, String password) {
+
+        if (email == null || password == null)
+            throw new IllegalArgumentException("Email and password are required");
+
+        User user = null;
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(QUERY_GET_BY_EMAIL_PASSWORD);
+            stmt.setString(1, email);
+            stmt.setString(2, password);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword("hidden");
+            }
+        } catch (SQLException sqe) {
+            sqe.printStackTrace();
+            return null;
+        }
+        return user;
+    }
 }
