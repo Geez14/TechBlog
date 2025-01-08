@@ -17,7 +17,7 @@ public class AboutDao {
 
     public boolean save(About about) {
         try (PreparedStatement stmt = this.conn.prepareStatement(QUERY)) {
-            System.out.println(about);
+//            System.out.println(about);
             stmt.setInt(1, about.getId());
             stmt.setString(2, about.getAbout());
             stmt.executeUpdate();

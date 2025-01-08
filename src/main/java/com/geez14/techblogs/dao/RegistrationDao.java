@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+@Deprecated(forRemoval = true)
 public class RegistrationDao {
     private Connection conn;
     private static final String QUERY1 =
@@ -31,6 +32,7 @@ public class RegistrationDao {
             stmt1.setString(1, user.getUsername());
             stmt1.setString(2, user.getEmail());
             stmt1.setString(3, user.getPassword());
+            stmt1.executeUpdate();
             stmt1.close();
 
             PreparedStatement stmt2 = this.conn.prepareStatement(QUERY4);
@@ -40,6 +42,7 @@ public class RegistrationDao {
             PreparedStatement stmt3 = this.conn.prepareStatement(QUERY2);
             stmt3.setInt(1, id);
             stmt3.setString(2, about.getAbout());
+            stmt3.executeUpdate();
             stmt3.close();
 
             PreparedStatement stmt4 = this.conn.prepareStatement(QUERY3);
@@ -48,6 +51,7 @@ public class RegistrationDao {
             stmt4.setString(3, detail.getLastName());
             stmt4.setString(4, detail.getGender());
             stmt4.setString(5, detail.getPhoneNumber());
+            stmt4.executeUpdate();
             stmt4.close();
         } catch (SQLException sqe) {
             sqe.printStackTrace();

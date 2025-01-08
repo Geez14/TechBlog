@@ -46,7 +46,7 @@ public class UserDao {
                 ResultSet rs = stmt2.executeQuery();
                 rs.next();
                 user.setId(rs.getInt(1));
-                System.out.println(user);
+//                System.out.println(user);
 
             } catch (SQLException sqe) {
                 return false;
