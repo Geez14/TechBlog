@@ -1,16 +1,1 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: imona
-  Date: 07-01-2025
-  Time: 01:57
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
-</html>
+<footer class="text-center">Total Request Handled: <span class="fa fa-user"></span> <%=request.getSession().getAttribute("total-requests")%></footer>
