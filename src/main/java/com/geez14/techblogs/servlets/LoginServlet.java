@@ -64,10 +64,5 @@ public class LoginServlet extends HttpServlet {
             int time = 2*24*60*60;
             request.getSession().setMaxInactiveInterval(time);
         }
-
-        out.println("Logged in");
-        out.println("<br>");
-        out.println("Email: " + email);
-        out.println("Password: " + password);
     }
 }
