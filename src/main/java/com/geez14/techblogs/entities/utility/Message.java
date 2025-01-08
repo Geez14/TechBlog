@@ -1,5 +1,8 @@
 package com.geez14.techblogs.entities.utility;
 
+/**
+ * Send Server Message as bootstrap alert dynamically
+ */
 public class Message {
     private String content;
     private String type;
