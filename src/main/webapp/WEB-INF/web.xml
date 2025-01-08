@@ -7,7 +7,7 @@
         <error-code>404</error-code>
         <location>/error.jsp</location>
     </error-page>
-   <!--  RegisterServlet Mapping  -->
+    <!--  RegisterServlet Mapping  -->
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.geez14.techblogs.servlets.RegisterServlet</servlet-class>

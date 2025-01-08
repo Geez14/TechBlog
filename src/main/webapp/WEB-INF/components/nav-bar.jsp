@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><span class="fa fa-github-alt"></span>
+                    <a class="nav-link active" aria-current="page" href="https://www.github.com/Geez14"><span class="fa fa-github-alt"></span>
                         Code&Whiskers</a>
                 </li>
 
@@ -29,15 +29,23 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
+                    <a class="nav-link" href="#"><span class="fa fa-address-book-o"></span> Contact</a>
                 </li>
-
+                <% if (session.getAttribute("userSession") == null) {
+                %>
+                }
                 <li class="nav-item">
-                    <a class="nav-link active" href="login.jsp"><span class="fa fa-user-circle"></span> Login</a>
+                    <a class="nav-link" href="login.jsp"><span class="fa fa-user-circle"></span> Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="register.jsp"><span class="fa fa-user-plus"></span> SignUp/Register</a>
+                    <a class="nav-link" href="register.jsp"><span class="fa fa-user-plus"></span> SignUp/Register</a>
                 </li>
+                <% } else {
+                %>
+                <li class="nav-item">
+                    <a class="nav-link" href="profile.jsp"><span class="fa fa-user-circle-o"></span> Profile</a>
+                </li>
+                <%}%>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

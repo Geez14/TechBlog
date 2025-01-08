@@ -73,6 +73,7 @@ public class RegisterServlet extends HttpServlet {
 
         // creating user_name
         String username = "@".concat("User").concat(Integer.toString(email.hashCode())).concat(Integer.toString(code.nextInt(99999)));
+        System.out.println(username);
 
         // Save User
         User userInstance = new User(username, email, password);

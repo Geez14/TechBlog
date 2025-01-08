@@ -1,8 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="com.geez14.techblogs.entities.User" %>
+<%@ page import="com.geez14.techblogs.entities.views.Profile" %>
 <html>
 <head>
-    <%User u = (User) session.getAttribute("userSession");%>
+    <%Profile p = (Profile) session.getAttribute("userSession");%>
     <title>Profile</title>
     <%-- css --%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -42,17 +42,103 @@
                     </ul>
                 </li>
             </ul>
-            <ul>
+            <ul class="navbar-nav mr-right">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><span class="fa fa-user-circle"></span>  <%=u.getUsername()%></a>
+                    <a class="nav-link active" href="#"><span
+                            class="fa fa-user-circle"></span> <%=p.getUsername().substring(0, 6)%>...
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="${pageContext.request.contextPath}/logout"><span class="fa fa-exclamation-circle"></span>Logout</a>
+                    <form action="${pageContext.request.contextPath}/logout" method="post">
+                        <button type="submit" class="nav-link active">
+                            <span class="fa fa-power-off"></span> Logout
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 <%-- Nav Bar END --%>
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Sno.</th>
+        <th scope="col">Key</th>
+        <th scope="col">Value</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    <tr>
+        <th scope="row">1</th>
+        <td>id</td>
+        <td><%=p.getId()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>username</td>
+        <td><%=p.getUsername()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>email</td>
+        <td><%=p.getEmail()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">4</th>
+        <td>password</td>
+        <td><%=p.getPassword()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">5</th>
+        <td>firstname</td>
+        <td><%=p.getFirstName()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">6</th>
+        <td>lastname</td>
+        <td><%=p.getLastName()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">7</th>
+        <td>phone-number</td>
+        <td><%=p.getPhoneNumber()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">8</th>
+        <td>gender</td>
+        <td><%=p.getGender()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">9</th>
+        <td>profile picture</td>
+        <td><%=p.getProfilePic()%>
+        </td>
+    </tr>
+    <tr>
+        <th scope="row">10</th>
+        <td>status</td>
+        <td><%=p.getAbout()%>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<%-- javascript --%>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
 </body>
 </html>

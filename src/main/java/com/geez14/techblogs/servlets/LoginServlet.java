@@ -1,8 +1,13 @@
 package com.geez14.techblogs.servlets;
 
+import com.geez14.techblogs.dao.AboutDao;
+import com.geez14.techblogs.dao.DetailDao;
 import com.geez14.techblogs.dao.UserDao;
+import com.geez14.techblogs.entities.About;
+import com.geez14.techblogs.entities.Detail;
 import com.geez14.techblogs.entities.User;
 import com.geez14.techblogs.entities.utility.Message;
+import com.geez14.techblogs.entities.views.Profile;
 import com.geez14.techblogs.util.ConnectionProvider;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -50,16 +55,19 @@ public class LoginServlet extends HttpServlet {
             response.sendRedirect("/login.jsp");
             return;
         }
-
         User user = new UserDao(ConnectionProvider.getConnection()).verifyByEmailAndPassword(email, password);
         if (user == null) {
             m.setContent("Incorrect email or password");
             response.sendRedirect("/login.jsp");
             return;
         }
-        m.setContent("Successfully logged in");
-        m.setCssClass("alert alert-success");
-        request.getSession().setAttribute("userSession", user);
+        About about = new AboutDao(ConnectionProvider.getConnection()).getAboutById(user.getId());
+        Detail detail = new DetailDao(ConnectionProvider.getConnection()).getDetailById(about.getId());
+
+
+        Profile profile = new Profile(user, detail, about);
+        request.getSession().setAttribute("userSession", profile);
+        request.removeAttribute("msg");
         // ('on' | null)
         String check = request.getParameter("check");
         if (check != null) {
@@ -67,6 +75,6 @@ public class LoginServlet extends HttpServlet {
             int time = 2*24*60*60;
             request.getSession().setMaxInactiveInterval(time);
         }
-        response.sendRedirect(request.getContextPath() + "/login.jsp");
+        response.sendRedirect(request.getContextPath() + "/profile.jsp");
     }
 }

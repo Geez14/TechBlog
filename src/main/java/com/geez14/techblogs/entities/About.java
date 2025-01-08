@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class About {
     private int id;
+    private String profile_picture;
     private String about;
 //
 //    /**
@@ -33,6 +34,19 @@ public class About {
         this.about = about;
     }
 
+    /**
+     * Constructor to get about
+     *
+     * @param id    int
+     * @param profile_picture java.lang.String
+     * @param about java.lang.String
+     */
+    About(int id, String profile_picture, String about) {
+        this.id = id;
+        this.profile_picture = profile_picture;
+        this.about = about;
+    }
+
     public int getId() {
         return id;
     }
@@ -47,6 +61,14 @@ public class About {
 
     public void setAbout(String about) {
         this.about = about;
+    }
+
+    public String getProfile_picture() {
+        return profile_picture;
+    }
+
+    public void setProfile_picture(String profile_picture) {
+        this.profile_picture = profile_picture;
     }
 
     @Override
