@@ -1,7 +1,5 @@
 package com.geez14.techblogs.servlets;
 
-import com.geez14.techblogs.entities.User;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

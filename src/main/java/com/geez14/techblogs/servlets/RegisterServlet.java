@@ -10,9 +10,6 @@ import com.geez14.techblogs.entities.About;
 import com.geez14.techblogs.entities.Detail;
 import com.geez14.techblogs.entities.User;
 import com.geez14.techblogs.util.ConnectionProvider;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.ServletRequest;
-import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
