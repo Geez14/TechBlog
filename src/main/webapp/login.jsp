@@ -74,7 +74,6 @@
         $("#user-login-form").on("submit", (event) => {
             event.preventDefault();
             let form = new FormData(event.target);
-            console.log(form.get("email"), form.get("password"));
             $.ajax({
                 url: "login",
                 type: "POST",
