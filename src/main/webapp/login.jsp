@@ -67,6 +67,7 @@
         crossorigin="anonymous"></script>
 <%-- for animated alerts --%>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<%@include file="WEB-INF/components/footer.jsp"%>
 <script>
     $(document).ready(() => {
         console.log("Form loaded")
