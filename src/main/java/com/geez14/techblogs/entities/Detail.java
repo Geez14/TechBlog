@@ -1,7 +1,5 @@
 package com.geez14.techblogs.entities;
 
-import java.util.Objects;
-
 public class Detail {
     private int id;
     private String firstName;

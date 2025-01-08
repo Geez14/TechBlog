@@ -1,7 +1,5 @@
 package com.geez14.techblogs.entities;
 
-import java.util.Objects;
-
 public class User {
     private int id = -1;
     private String username;
