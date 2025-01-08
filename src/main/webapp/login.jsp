@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form id="user-login-form" action="" method="POST">
+                        <form id="user-login-form" action="${pageContext.request.contextPath}/login" method="POST">
                             <%-- email --%>
                             <div class="mb-3">
                                 <label for="user-email" class="form-label">Email address</label>
