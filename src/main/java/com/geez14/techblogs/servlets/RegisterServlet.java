@@ -72,8 +72,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         // creating user_name
-        String username = "@".concat("User").concat(Integer.toString(email.hashCode())).concat(Integer.toString(code.nextInt(99999)));
-        System.out.println(username);
+        String username = "@".concat("User").concat(Long.toString(email.hashCode())).concat(Integer.toString(code.nextInt(99999)));
 
         // Save User
         User userInstance = new User(username, email, password);
@@ -85,7 +84,7 @@ public class RegisterServlet extends HttpServlet {
         }
 
         // Save bio
-        About aboutInstance = new About(userInstance.getId(), about);
+        About aboutInstance = new About(userInstance.getId(), null, about.isBlank()?null:about.toLowerCase());
         AboutDao aboutDao = new AboutDao(ConnectionProvider.getConnection());
         if (!aboutDao.save(aboutInstance)) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

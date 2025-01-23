@@ -33,7 +33,6 @@
                 </li>
                 <% if (session.getAttribute("userSession") == null) {
                 %>
-                }
                 <li class="nav-item">
                     <a class="nav-link" href="login.jsp"><span class="fa fa-user-circle"></span> Login</a>
                 </li>
