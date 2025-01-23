@@ -4,24 +4,23 @@ import com.geez14.techblogs.entities.About;
 import com.geez14.techblogs.entities.Detail;
 import com.geez14.techblogs.entities.User;
 
-import java.sql.Date;
 
 // this class contain all the data of about/detail/user
 public class Profile {
-    private int id;
+    private final int id;
     // User table
-    private String username;
-    private String email;
-    private Date registrationDate;
-    private String password;
+    private final String username;
+    private final String email;
+    private final String registrationDate;
+    private final String password;
     // Detail
-    private String firstName;
-    private String lastName;
-    private String gender;
-    private String phoneNumber;
+    private final String firstName;
+    private final String lastName;
+    private final String gender;
+    private final String phoneNumber;
     // About
-    private String profilePic;
-    private String about;
+    private final String profilePic;
+    private final String about;
 
     public Profile(User user, Detail detail, About about) {
         this.id = user.getId();
@@ -79,7 +78,7 @@ public class Profile {
         return about;
     }
 
-    public Date getRegistrationDate() {
+    public String getRegistrationDate() {
         return registrationDate;
     }
 
@@ -95,7 +94,7 @@ public class Profile {
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", profilePic='" + profilePic + '\'' +
-                ", registrationDate=" + registrationDate.toString() +
+                ", registrationDate=" + registrationDate+
                 ", about='" + about + '\'' +
                 '}';
     }

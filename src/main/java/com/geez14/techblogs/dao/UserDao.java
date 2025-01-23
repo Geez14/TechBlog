@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
-    private Connection conn;
+    private final Connection conn;
 
     public UserDao(Connection conn) {
         this.conn = conn;
@@ -78,6 +78,7 @@ public class UserDao {
                 user.setUsername(rs.getString("username"));
                 user.setEmail(rs.getString("email"));
                 user.setPassword("hidden");
+                user.setRegistrationDate(rs.getTimestamp("reg_date"));
             }
         } catch (SQLException sqe) {
             sqe.printStackTrace();

@@ -1,13 +1,16 @@
 package com.geez14.techblogs.entities;
 
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class User {
     private int id = -1;
     private String username;
     private String email;
     private String password;
-    private Date registrationDate;
+    private Timestamp registrationDate;
 
     /**
      * For serialization and other purpose
@@ -76,12 +79,13 @@ public class User {
         this.password = password;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(Timestamp registrationDate) {
         this.registrationDate = registrationDate;
     }
 
-    public Date getRegistrationDate() {
-        return registrationDate;
+    public String getRegistrationDate() {
+
+        return registrationDate.toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
     }
 
     @Override
