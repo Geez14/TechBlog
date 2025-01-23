@@ -44,7 +44,7 @@
             </ul>
             <ul class="navbar-nav mr-right">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><span
+                    <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#profile-modal"><span
                             class="fa fa-user-circle"></span> <%=p.getUsername().substring(0, 6)%>...
                     </a>
                 </li>
@@ -59,78 +59,81 @@
         </div>
     </div>
 </nav>
-<%-- Nav Bar END --%>
-<table class="table table-striped table-hover">
-    <thead>
-    <tr>
-        <th scope="col">Sno.</th>
-        <th scope="col">Key</th>
-        <th scope="col">Value</th>
-    </tr>
-    </thead>
-    <tbody class="table-group-divider">
-    <tr>
-        <th scope="row">1</th>
-        <td>id</td>
-        <td><%=p.getId()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>username</td>
-        <td><%=p.getUsername()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td>email</td>
-        <td><%=p.getEmail()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">4</th>
-        <td>password</td>
-        <td><%=p.getPassword()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">5</th>
-        <td>firstname</td>
-        <td><%=p.getFirstName()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">6</th>
-        <td>lastname</td>
-        <td><%=p.getLastName()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">7</th>
-        <td>phone-number</td>
-        <td><%=p.getPhoneNumber()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">8</th>
-        <td>gender</td>
-        <td><%=p.getGender()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">9</th>
-        <td>profile picture</td>
-        <td><%=p.getProfilePic()%>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">10</th>
-        <td>status</td>
-        <td><%=p.getAbout()%>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<%-- profile modal --%>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#profile-modal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="profile-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header primary-background text-white">
+                <h5 class="modal-title fs-5" id="exampleModalLabel"> User Profile </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container text-center">
+                    <img class="img-fluid" src="${pageContext.request.contextPath}/pics/<%=p.getProfilePic()%>"
+                         alt="<%=p.getProfilePic()%>" width="150px" style="padding:10px 0 20px 0">
+                    <br>
+                    <h5 class="modal-title fs-5" id="user-name"><%= p.getUsername()%>
+                    </h5>
+                    <%-- Details --%>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Key</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                        <tr>
+                            <th scope="row">Email</th>
+                            <td><%=p.getEmail()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">First Name</th>
+                            <td><%=p.getFirstName()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Last Name</th>
+                            <td><%=p.getLastName()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">phone-number</th>
+                            <td><%=p.getPhoneNumber()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gender</th>
+                            <td><%=p.getGender()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Status</th>
+                            <td><%=p.getAbout()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Registered On</th>
+                            <td><%=p.getRegistrationDate()%>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
+                <button type="button" class="btn btn-danger text-white">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
 <%-- javascript --%>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
