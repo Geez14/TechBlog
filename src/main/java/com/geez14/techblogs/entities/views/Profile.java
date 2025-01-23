@@ -30,7 +30,7 @@ public class Profile {
         this.gender = detail.getGender();
         this.phoneNumber = detail.getPhoneNumber();
         this.about = about.getAbout();
-        this.profilePic = about.getProfile_picture();
+        this.profilePic = about.getProfilePicture();
     }
 
     public int getId() {

@@ -41,7 +41,7 @@ public class About {
      * @param profile_picture java.lang.String
      * @param about java.lang.String
      */
-    About(int id, String profile_picture, String about) {
+    public About(int id, String profile_picture, String about) {
         this.id = id;
         this.profile_picture = profile_picture;
         this.about = about;
@@ -63,7 +63,7 @@ public class About {
         this.about = about;
     }
 
-    public String getProfile_picture() {
+    public String getProfilePicture() {
         return profile_picture;
     }
 
