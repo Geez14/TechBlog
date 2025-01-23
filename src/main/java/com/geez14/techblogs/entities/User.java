@@ -1,10 +1,14 @@
 package com.geez14.techblogs.entities;
 
+import java.sql.Date;
+
 public class User {
     private int id = -1;
     private String username;
     private String email;
     private String password;
+    private Date registrationDate;
+
     /**
      * For serialization and other purpose
      */
@@ -72,6 +76,13 @@ public class User {
         this.password = password;
     }
 
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -91,6 +102,7 @@ public class User {
 
     /**
      * Override toString method to get object representation
+     *
      * @return java.lang.String
      */
     @Override

@@ -4,12 +4,15 @@ import com.geez14.techblogs.entities.About;
 import com.geez14.techblogs.entities.Detail;
 import com.geez14.techblogs.entities.User;
 
+import java.sql.Date;
+
 // this class contain all the data of about/detail/user
 public class Profile {
     private int id;
     // User table
     private String username;
     private String email;
+    private Date registrationDate;
     private String password;
     // Detail
     private String firstName;
@@ -31,86 +34,53 @@ public class Profile {
         this.phoneNumber = detail.getPhoneNumber();
         this.about = about.getAbout();
         this.profilePic = about.getProfilePicture();
+        this.registrationDate = user.getRegistrationDate();
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getUsername() {
         return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public String getProfilePic() {
         return profilePic;
-    }
-
-    public void setProfilePic(String profilePic) {
-        this.profilePic = profilePic;
     }
 
     public String getAbout() {
         return about;
     }
 
-    public void setAbout(String about) {
-        this.about = about;
+    public Date getRegistrationDate() {
+        return registrationDate;
     }
 
     @Override
@@ -125,7 +95,9 @@ public class Profile {
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", profilePic='" + profilePic + '\'' +
+                ", registrationDate=" + registrationDate.toString() +
                 ", about='" + about + '\'' +
                 '}';
     }
+
 }
